@@ -1,9 +1,8 @@
-
-<h1>{{ title }}</h1>
-<nav>
-    <a routerLink="/heroes">Heroes</a>
-    <a routerLink="/dashboard">Dashboard</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
-
+<mat-sidenav-container fullscreen>
+    <mat-toolbar color="primary">
+        <span>My Application</span>
+        <a mat-button routerLink="/heroes">Heroes</a> 
+        <a mat-button routerLink="/dashboard">Dashboard</a>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
