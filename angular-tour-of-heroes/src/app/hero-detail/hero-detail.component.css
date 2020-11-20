@@ -16,10 +16,10 @@ p{
 .detail,.input{
   display: flex;
   align-items: center;
-  
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
-.detail div button:first-child{
-  margin-right: 40px;
+.detail div button:nth-child(2){
+  margin: 0 40px;
 }

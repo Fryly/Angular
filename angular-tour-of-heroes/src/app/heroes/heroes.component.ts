@@ -1,8 +1,14 @@
+import { HEROES } from './../util/mock-heroes';
 
-import { Component, OnInit } from '@angular/core';
+import {  AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Hero } from './../model/hero';
 import { HeroService } from '../service/hero.service';
+
+
 
 
 
@@ -12,13 +18,27 @@ import { HeroService } from '../service/hero.service';
   styleUrls: ['./heroes.component.css']
 })
 
-export class HeroesComponent implements OnInit {
+export class HeroesComponent implements OnInit,AfterViewInit {
 
-  heroes: Hero[];
+  name: string;
+  age: number;
+  sex: string;
+
   dataLoading: boolean = false 
   displayedColumns: string[] = ['id', 'name', 'age', 'sex'];
+  dataSource = new MatTableDataSource<Hero>(HEROES);
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    ) { }
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
 
   ngOnInit() {
     this.getHeroes();
@@ -26,24 +46,17 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => {
-          this.heroes = heroes
+          this.dataSource.data = heroes
         });
-
   }
-  add(name: string, age: number, sex: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.dataLoading = true;
-    this.heroService.addHero({ name, age, sex } as Hero)
+  add(): void {
+    // name = name.trim();
+    // if (!name) { return; }
+    this.heroService.addHero({ name: this.name , age: this.age , sex: this.sex } as Hero)
       .subscribe(hero => {
-        this.heroes.push(hero);
-        this.dataLoading = false;
-        console.log(hero)
+        this.dataSource.data.push(hero);
+        this.getHeroes()
       });
   }
   
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
-  }
 }

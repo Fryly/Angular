@@ -20,8 +20,7 @@ export class HeroService {
     private http: HttpClient
     ) { }
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
-      .pipe();
+    return this.http.get<Hero[]>(this.heroesUrl).pipe();
   }
 
   getHeroNo404<Data>(id: number): Observable<Hero> {

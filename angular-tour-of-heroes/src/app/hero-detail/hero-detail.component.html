@@ -8,7 +8,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Age</mat-label>
-      <input type="text" matInput [(ngModel)]="hero.age" placeholder="age">
+      <input type="number" matInput [(ngModel)]="hero.age" placeholder="age">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Sex</mat-label>
@@ -16,7 +16,8 @@
     </mat-form-field>
   </div>
   <div>
-    <button mat-stroked-button color="basic"  (click)="save()" class="save">save</button>
+    <button mat-stroked-button color="basic"  (click)="save()">save</button>
+    <button mat-stroked-button color="basic"  (click)="delete(hero.id)" class="delete">delete</button>
     <button mat-stroked-button color="basic"  (click)="goBack()">go back</button>
   </div>
 </div>

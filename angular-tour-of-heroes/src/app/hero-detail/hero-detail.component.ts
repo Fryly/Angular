@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { Hero } from '../model/hero';
 import { HeroService } from '../service/hero.service';
+import { HEROES } from '../util/mock-heroes';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -16,6 +18,7 @@ import { HeroService } from '../service/hero.service';
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
+  dataSource = new MatTableDataSource<Hero>(HEROES);
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +33,7 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {this.hero = hero; console.log(this.hero)});
   }
 
   save(): void {
@@ -40,6 +43,11 @@ export class HeroDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  delete(hero: Hero): void {
+    this.dataSource.data = this.dataSource.data.filter(h => h.id !== hero.id);
+    this.heroService.deleteHero(hero).subscribe(() => this.goBack());
   }
 
 }
