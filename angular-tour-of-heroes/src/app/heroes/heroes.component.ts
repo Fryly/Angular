@@ -1,9 +1,8 @@
-import { HEROES } from './../util/mock-heroes';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 
 import { Hero } from './../model/hero';
 import { HeroService } from '../service/hero.service';
-import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -16,29 +15,31 @@ import { MatTableDataSource } from '@angular/material/table';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
+  dataLoading: boolean = false 
   displayedColumns: string[] = ['id', 'name', 'age', 'sex'];
-  dataSource = HEROES;
+
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.getHeroes();
-    console.log(HEROES,'ss')
   }
   getHeroes(): void {
     this.heroService.getHeroes()
-        .subscribe(heroes => {this.heroes = heroes 
-          console.log(heroes)});
+        .subscribe(heroes => {
+          this.heroes = heroes
+        });
 
   }
   add(name: string, age: number, sex: string): void {
     name = name.trim();
     if (!name) { return; }
+    this.dataLoading = true;
     this.heroService.addHero({ name, age, sex } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
+        this.dataLoading = false;
         console.log(hero)
       });
-      console.log(name, age, sex)
   }
   
   delete(hero: Hero): void {

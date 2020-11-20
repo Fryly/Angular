@@ -1,11 +1,22 @@
-<div *ngIf="hero">
+<div *ngIf="hero" class="detail">
   <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+  <p>id:{{hero.id}}</p>
+  <div class="input">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [(ngModel)]="hero.name" placeholder="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input type="text" matInput [(ngModel)]="hero.age" placeholder="age">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Sex</mat-label>
+      <input type="text" matInput [(ngModel)]="hero.sex" placeholder="sex">
+    </mat-form-field>
   </div>
-  <button (click)="save()">save</button>
-  <button (click)="goBack()">go back</button>
+  <div>
+    <button mat-stroked-button color="basic"  (click)="save()" class="save">save</button>
+    <button mat-stroked-button color="basic"  (click)="goBack()">go back</button>
+  </div>
 </div>
