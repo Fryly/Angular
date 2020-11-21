@@ -50,11 +50,12 @@ export class HeroesComponent implements OnInit,AfterViewInit {
         });
   }
   add(): void {
-    // name = name.trim();
-    // if (!name) { return; }
     this.heroService.addHero({ name: this.name , age: this.age , sex: this.sex } as Hero)
       .subscribe(hero => {
         this.dataSource.data.push(hero);
+        this.name = '';
+        this.age = null;
+        this.sex = '';
         this.getHeroes()
       });
   }

@@ -45,9 +45,7 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  delete(hero: Hero): void {
-    this.dataSource.data = this.dataSource.data.filter(h => h.id !== hero.id);
-    this.heroService.deleteHero(hero).subscribe(() => this.goBack());
+  delete(): void {
+    this.heroService.deleteHero(this.hero.id).subscribe(() => this.goBack());
   }
-
 }
