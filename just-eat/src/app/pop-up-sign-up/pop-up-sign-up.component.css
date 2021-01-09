@@ -1,0 +1,91 @@
+.popup-sign-up,.popup-thank{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 20;
+    background:rgba(0, 0, 0, 0.8);
+}
+
+.popup-sign-up .popup-block,.popup-thank .popup-block__thank{
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    width: 323px;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+.popup-sign-up .popup-block .popup-form__up p{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 7px;
+}
+
+.popup-sign-up .popup-block .popup-form__up .valid{
+    color:red;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.popup-sign-up .popup-block .popup-form__up input{
+    height: 30px;
+    color: #000;
+    padding-left: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    outline: none;
+    border-radius: 6px;
+    width: 96%;
+    margin-bottom: 20px;
+}
+
+.popup-sign-up .popup-block .popup-form__up input:valid{
+    border: 1px solid green;
+}
+
+.popup-sign-up .popup-block .popup-form__up input:invalid{
+    border: 1px solid red;
+}
+
+.popup-sign-up .popup-block button,
+.popup-thank .popup-block__thank button{
+    background: #01bf2b;
+    border: none;
+    padding: 15px 50px;
+    color: #f7f7e2;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.popup-thank .popup-block__thank h2{
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.popup-sign-up .popup-block button:hover,
+.popup-thank .popup-block__thank button:hover{
+    background: #1f9c3a;
+}
+
+.popup-sign-up .popup-block .popup-close{
+    width: 32px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

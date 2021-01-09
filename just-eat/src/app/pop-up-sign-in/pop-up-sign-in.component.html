@@ -1,0 +1,20 @@
+<div class="popup-sign-in" *ngIf="showSignIn" (click)="goBack()">
+    <div class="popup-block" (click)="handleClick($event)">
+        <h2>Авторизация</h2>
+        <div class="popup-form" [formGroup]='loginForm'>
+            <p>Email:</p>
+            <input type="email" placeholder="Email" formControlName='email' required>
+            <p>Пароль:</p>
+            <input type="password" placeholder="Пароль" formControlName='password' minlength="6" required>
+            <p class="valid">{{errorMessage}}</p>
+        </div>
+        <!-- <div class="popup-change__pass">
+            <p>Забыли пароль?</p>
+            <p>Регистрация</p>
+        </div> -->
+        <button (click)='onSubmit()'>Войти</button>
+        <div class="popup-close" (click)="goBack()">
+            <img src="../../assets/close.svg" alt="close">
+        </div>
+    </div>
+</div>

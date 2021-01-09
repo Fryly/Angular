@@ -1,0 +1,48 @@
+<section class="cart">
+    <div class="content-cart">
+        <div class="no-item__cart" *ngIf="cart === null || cart.length === 0; else Cards">
+            <h2>Корзина пустая</h2>
+        </div>
+        <ng-template #Cards>
+            <div class="cart-block">
+                <div class="cart-top">
+                    <img src="../../assets/cor.png" alt="cor">
+                    <h2>Корзина</h2>
+                    <div class="clear-cart" (click)='clearCart()'>
+                        <img src="../../assets/trash.png" alt="cor">
+                        <span>Очистить корзину</span>
+                    </div>
+                </div>
+                <div class="cart-item" *ngFor="let item of cart; index as i">
+                    <div class="cart-img">
+                        <img src="{{item.img}}" alt="item">
+                    </div>
+                    <div class="discription">
+                        <h2>{{item.name}}</h2>
+                        {{item.discription}}
+                    </div>
+                    <div class="option">
+                        <div class="add-remove__cart">
+                            <div class="add" (click)="decrement(item)">
+                                <img src="../../assets/minus.svg" alt="minus">
+                            </div>
+                            <span>{{item.count}}</span>
+                            <div class="remove" (click)="increment(item)">
+                                <img src="../../assets/plus.svg" alt="plus">
+                            </div>
+                        </div>
+                        <span class="cart-price">{{item.price * item.count}} р.</span>
+                        <div class="del-cart" (click)="deleteToCart(i)">
+                            <img src="../../assets/delete.svg" alt="delete">
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-button">
+                    <div class="button" routerLink="/сheckout">
+                        Оформить заказ
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</section>

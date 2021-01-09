@@ -1,0 +1,24 @@
+<div class="popup-sign-up" *ngIf="showSignUp" (click)="goBack()" >
+    <div class="popup-block" (click)="handleClick($event)">
+        <h2>Регистрация</h2>
+        <div class="popup-form__up" [formGroup]='registerForm'>
+            <p>Email:</p>
+            <input type="email" placeholder="Email" formControlName='email' required>
+            <p>Пароль:</p>
+            <input type="password" placeholder="Пароль" formControlName='password' minlength="6" required>
+            <p>Подтвердите пароль:</p>
+            <input type="password" placeholder="Подтвердите пароль" minlength="6" required>
+            <p class="valid">{{errorMessage}}</p>
+        </div>
+        <button (click)='onSubmit()'>Зарегистрироваться</button>
+        <div class="popup-close" (click)="goBack()">
+            <img src="../../assets/close.svg" alt="close">
+        </div>
+    </div>
+</div>
+<div class="popup-thank" *ngIf="thank">
+    <div class="popup-block__thank">
+        <h2>Спасибо за регистрацию!</h2>
+        <button (click)='this.thank = false'>Ок</button>
+    </div>
+</div>

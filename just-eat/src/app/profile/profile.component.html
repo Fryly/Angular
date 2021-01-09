@@ -1,0 +1,108 @@
+<section class="profile" *ngIf="userData">
+    <div class="profile-content" [ngSwitch]="activeProfileList">
+        <div class="own-content" *ngSwitchCase="'Личный кабинет'">
+            <h2>Личный кабинет</h2>
+            <p class="profile-text"><span>ФИО:</span> {{userData.name}}</p>
+            <p class="profile-text"><span>Email:</span> {{userData.email}} </p>
+            <p class="profile-text"><span>Телефон:</span> {{userData.telefon}}</p>
+        </div>
+        <div class="change-content" *ngSwitchCase="'Изменить учетную запись'">
+            <h2>Изменить учетную запись</h2>
+            <div class="change-form" [formGroup]='userForm'>
+                <div class="change-email">
+                    <p>Email:</p>
+                    <input type="email" placeholder="Email" formControlName='email'>
+                </div>
+                <div class="change-password">
+                    <p>Имя:</p>
+                    <input type="text" placeholder="Имя" formControlName='name'>
+                </div>
+                <div class="change-telefon">
+                    <p>Телефон:</p>
+                    <input type="text" placeholder="Телефон"  minlength="6" formControlName='telefon'>
+                </div>
+            </div>
+            <button (click)="onSubmitUser()">Сохранить</button>
+        </div>
+        <div class="address-content" *ngSwitchCase="'Адрес доставки'">
+            <h2>Адрес доставки</h2>
+            <div class="address">
+                <p class="address-text">{{userData.city}}, ул.{{userData.street}} {{userData.house}}</p>
+                <img src="../../assets/edit.svg" alt="change" (click)="onChange()">
+            </div>
+            <div class="data-address" *ngIf="change" [formGroup]='addressForm'>
+                <div class="address-city">
+                    <p>Город:</p>
+                    <input type="text" placeholder="Город" formControlName='city'>
+                </div>
+                <div class="address-street">
+                    <p>Улица:</p>
+                    <input type="text" placeholder="Улица" formControlName='street'>
+                </div>
+                <div class="change-house">
+                    <p>Дом-Офис:</p>
+                    <input type="text" placeholder="Дом-Офис" formControlName='house'>
+                </div>
+                <button (click)="onSubmitAddress()">Сохранить</button>
+            </div>
+        </div>
+        <div class="history-content" *ngSwitchCase="'История заказов'">
+            <h2>История заказов</h2>
+            <div class="history-block" *ngFor="let item of historyData">
+                <div class="history-item" *ngFor="let curItem of item.cart">
+                    <div class="history-img">
+                        <img src="{{curItem.img}}" alt="item">
+                    </div>
+                    <div class="history-discription">
+                        <h2>{{curItem.name}}</h2>
+                        {{curItem.discription}}
+                    </div>
+                    <div class="history-option">
+                        <span> {{curItem.count}} шт</span>
+                        <span class="history-price">{{curItem.price * curItem.count}} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-content" *ngSwitchCase="'Заказы'">
+            <h2>Заказы</h2>
+            <div class="order-table" *ngFor="let item of ordersData">
+                <div class="status-block">
+                    <div class="order-contact">
+                        <p class="order-text"><span>Имя:</span> {{item.name}}</p>
+                        <p class="order-text"><span>Адрес:</span> {{item.address}}</p>
+                        <p class="order-text"><span>Телефон:</span> {{item.telefon}}</p>
+                        <p class="order-text"><span>Оплата:</span> {{item.payment}}</p>
+                        <p class="order-text"><span>Комментарий:</span> {{item.comment}}</p>
+                    </div>
+                    <div class="status">
+
+                        <select class="status-select" [(ngModel)]="item.status">
+                            <option *ngFor="let itemStatus of status" [value]="itemStatus">{{itemStatus}}</option>
+                        </select>
+                        <button (click)='onStatusClick(item.orderid, item.status)'>Изменить статус</button>
+                    </div>
+                </div>
+                <div class="order-cart" *ngFor="let curItm of item.cart">
+                    <div class="order-img">
+                        <img src="{{curItm.img}}" alt="item">
+                    </div>
+                    <h2>{{curItm.name}}</h2>
+                    <div class="order-option">
+                        <span> {{curItm.count}} шт</span>
+                        <span class="order-price">{{curItm.price * curItm.count}} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-profile">
+        <h2>Личный кабинет</h2>
+        <ul>
+            <li *ngFor="let profile of profileList" (click)="onSelectProfileList(profile)" [class.active]="profile === activeProfileList">
+                {{profile}}
+            </li>
+            <li (click)="onSelectProfileList('Заказы')" *ngIf="isAdmin" [class.active]="'Заказы' === activeProfileList">Заказы</li>
+        </ul>
+    </div>
+</section>

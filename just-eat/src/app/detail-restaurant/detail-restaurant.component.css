@@ -1,0 +1,103 @@
+.menu-content{
+    padding: 50px calc(50% - 640px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-content h2{
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-align: center;
+    color:#b51628;
+}
+
+.menu-content .sort-menu{
+    max-height: 400px;
+    position: sticky;
+    top: 50px;
+}
+
+.menu-content .sort-menu .sort-menu__nav{
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.menu-content .sort-menu,.menu-content .main-menu{
+    border: 1px solid #dbdbdb;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    background: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    width: 17%;
+}
+
+.menu-content .main-menu{
+    width: 69%;
+}
+
+.menu-content .main-menu .block-menu h2{
+    text-align: left;
+    color: #b51628;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+
+.menu-content .main-menu .block-menu .item-menu{
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription .discription-text h3{
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription .discription-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription .item-menu__price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription .item-menu__price span{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-content .main-menu .block-menu .item-menu .discription .item-menu__price .item-menu__button{
+    margin-right: 10px;
+    background: #b51628;
+    border-bottom: 1px solid #dbdbdb;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 175px;
+    transition: background 0.3s ease;
+    user-select: none;
+    outline: none;
+}
+
+.menu-content .main-menu .block-menu .item-menu .item-menu__img{
+    margin-right: 20px;
+}
+
+.active-menu{
+    color: #b51628;
+}

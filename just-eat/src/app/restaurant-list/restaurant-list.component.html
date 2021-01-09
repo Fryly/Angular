@@ -1,0 +1,48 @@
+<section class="main-content">
+    <div class="sort" *ngIf="restaurant">
+        <div class="sort-restaurants"  (click)="onSelectRestaurant('Все')" [ngClass]="{
+            select: activeRestaurant === 'Все'
+        }">
+            <span >Все {{dataRestaurant.length}}</span>
+        </div>
+        <div class="sort-restaurants"  (click)="onSelectRestaurant('Открытые Рестораны')" [ngClass]="{
+            select: activeRestaurant === 'Открытые Рестораны'
+        }">
+            <span >Открытые Рестораны {{dataFilterRestaurant.length}}</span>
+        </div>
+        <div class="sort-delivery">
+            <p  *ngFor="let delivery of listTwo" (click)="onSelectDelivery(delivery)" [class.select-delivery]="delivery === activeDelivery">
+                {{delivery}}</p>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="sort-kitchen">
+            <h2>Кухня</h2>
+            <ul>
+            <li 
+                *ngFor="let kitchen of filterKithen" 
+                (click)="onSelectKithen(kitchen)" 
+                [class.select-kitchen]="kitchen === activeKithen">
+                {{kitchen}}
+            </li>
+            </ul>
+        </div>
+        <div class="restaurant-content">
+            <div class="restaurant-block" *ngFor="let rest of restaurant;" routerLink="/restaurant/{{rest.id}}">
+                <img
+                        src={{rest.logo}}
+                />
+                <h2>{{rest.name}}</h2>
+                <p class="restaurant-country">
+                    {{rest.country}}
+                </p>
+                <p class="restaurant-food">
+                    {{rest.food}}
+                </p>
+                <span class="restaurant-time">{{rest.openTime}} - {{rest.closeTime}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+

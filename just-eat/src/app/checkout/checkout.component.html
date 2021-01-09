@@ -1,0 +1,138 @@
+<section class="block-checkout">
+    <div class="content-checkout">
+        <div class="checkout-form" [formGroup]='ordersForm' novalidate>
+            <h2>Оформление заказа</h2>
+                <h3>Основная информация</h3>
+                <div class="form-info">
+                    <div class="form">
+                        <input 
+                            type="text"
+                            name="Имя" 
+                            required
+                            formControlName='name'
+                        >
+                        <label class="label-name">
+                            <span class="name-section">Имя</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input 
+                            type="email"
+                            name="email"
+                            required
+                            formControlName='email'
+                        >
+                        <label class="label-name">
+                            <span class="name-section">Email</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input 
+                            type="tel"
+                            required
+                            formControlName='telefon'
+                        >
+                        <label class="label-name">
+                            <span class="name-section">Телефон</span>
+                        </label>
+                    </div>
+                </div>
+            <h3>Адрес</h3>
+            <div class="form-adress">
+                <div class="form">
+                    <input 
+                        type="text"
+                        required
+                        formControlName='city'
+                    >
+                    <label class="label-name">
+                        <span class="name-section">Город</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input 
+                        type="text"
+                        required
+                        formControlName='street'
+                    >
+                    <label class="label-name">
+                        <span class="name-section">Улица</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input 
+                        type="text"
+                        required
+                        formControlName='house'
+                    >
+                    <label class="label-name">
+                        <span class="name-section">Дом</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input 
+                        type="text" 
+                        required
+                        formControlName='floor'
+                    >
+                    <label class="label-name">
+                        <span class="name-section">Этаж</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input 
+                        type="text" 
+                        required
+                        formControlName='entrance'
+                    >
+                    <label class="label-name">
+                        <span class="name-section">Подъезд</span>
+                    </label>
+                </div>
+                
+                <div class="text-area">
+                    <p>Комментарий</p>
+                   <textarea
+                    formControlName='comment'>
+                    </textarea>
+                </div>
+            </div>
+            <h3>Способ оплаты</h3>
+            <div class="form-money">
+                <input type="radio" name='money' value="Оплата наличными" id="money" formControlName='money'>
+                <label for="money">Оплата наличными</label><br>
+                <input type="radio" name='money' value="Оплата картой курьеру" id="card" formControlName='money'>
+                <label for="card">Оплата картой курьеру</label><br>
+                <input type="radio" name='money' value="Оплата картой онлайн" id="card-online" formControlName='money'>
+                <label for="card-online">Оплата картой онлайн</label>
+            </div>
+            <div class="novalidate">{{errorMessage}}</div>
+            <button class="checkout-button" (click)="onSubmit()">
+                Заказать
+            </button>
+        </div>
+        <div class="checkout-items__block">
+            <h2>Корзина</h2>
+            <div class="chekout-item" *ngFor="let item of cart">
+                <div class="chekout-img">
+                    <img src="{{item.img}}" alt="item">
+                </div>
+                <div class="chekout-discription">
+                    <h2>{{item.name}}</h2>
+                    {{item.discription}}
+                </div>
+                <div class="chekout-option">
+                    <span> {{item.count}} шт</span>
+                    <span class="chekout-price">{{item.price * item.count}} р.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="popup-chekout" *ngIf="helpMessage">
+    <div class="popup-block">
+        <h2>Спасибо за покупку!</h2>
+        <h2>С вами скоро свяжутся!</h2>
+        <button (click)='goBack()'>Ок</button>
+    </div>
+</div>

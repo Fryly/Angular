@@ -1,0 +1,33 @@
+<section class="menu-content" *ngIf="menuData">
+    <div class="sort-menu">
+        <h2>Меню {{menuData.nameMenu}}</h2>
+        <p
+            *ngFor="let sort of menuData.menu;"
+            class="sort-menu__nav"
+            (click)="onClickMenu(sort.title,sort)"
+            [class.active-menu]="sort == activeMenu"
+        >
+            {{sort.title}}
+        </p>
+    </div>
+    <div class="main-menu">
+        <div class="block-menu" *ngFor="let menu of menuData.menu;">
+            <h2 id="{{menu.title}}">{{menu.title}}</h2>
+            <div class="item-menu" *ngFor="let food of menu.food;">
+                <div class="item-menu__img">
+                    <img src={{food.img}} alt="#">
+                </div>
+                <div class="discription">
+                    <div class="discription-text">
+                        <h3>{{food.name}}</h3>
+                        <p>{{food.discription}}</p>
+                    </div>
+                    <div class="item-menu__price">
+                        <span>Цена: {{food.price}} р.</span>
+                        <div class="item-menu__button" (click)='addCart(food)'>Добавить в корзину</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

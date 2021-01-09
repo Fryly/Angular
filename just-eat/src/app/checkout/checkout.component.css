@@ -1,0 +1,234 @@
+.block-checkout{
+    padding: 50px calc(50% - 640px);
+}
+
+.block-checkout .content-checkout{
+    border-radius: 6px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    background: #fff;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.block-checkout .content-checkout .checkout-form {
+    width: 30%;
+}
+
+.block-checkout .content-checkout .checkout-form h2{
+    text-align: center;
+}
+
+.checkout-form h3{
+    margin-top: 20px;
+}
+
+.checkout-form .form-info,.form-adress, .form-money{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+
+
+.form-money label, .form-money input{
+    cursor: pointer;
+}
+
+.checkout-form .checkout-button{
+    background: transparent;
+    border: 2px solid #e4002f;
+    color: #000;
+    padding: 10px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.checkout-form .form-money{
+    margin-top: 10px;
+}
+
+.checkout-form .form-money input{
+    margin-right: 5px;
+}
+
+.form-adress .text-area p{
+    margin: 10px 0;
+}
+
+.form-adress .text-area input{
+    width: 96.5%;
+    height: 100px;
+    resize: none;
+    outline: none;
+    padding: 5px;
+}
+
+.form{
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.form input{
+    width: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+.form input:focus + .label-name .name-section, 
+.form input:valid + .label-name .name-section{
+    transform: translateY(-100%);
+    font-size: 16px;
+} 
+
+.form input:focus + .label-name::after, 
+.form input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.form label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #000;
+}
+
+.form label::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #01bf2b;
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.form .name-section{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease
+}
+
+
+
+.block-checkout .content-checkout .checkout-items__block{
+    width: 60%;
+}
+
+.block-checkout .content-checkout .checkout-items__block .chekout-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.block-checkout .content-checkout .checkout-items__block  .chekout-img{
+    width: 12%;
+}
+
+.block-checkout .content-checkout .checkout-items__block  .chekout-img img{
+    width: 80px;
+}
+
+.block-checkout .content-checkout .checkout-items__block  .chekout-discription{
+    width: 60%;
+}
+
+.block-checkout .content-checkout .checkout-items__block  .chekout-discription h2{
+    margin-bottom: 10px;
+}
+
+.block-checkout .content-checkout .checkout-items__block .chekout-option{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+.block-checkout .content-checkout .checkout-items__block .chekout-option .chekout-price{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.popup-chekout{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 20;
+    background:rgba(0, 0, 0, 0.8);
+}
+.popup-chekout .popup-block{
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+.popup-chekout .popup-block button{
+    background: #01bf2b;
+    border: none;
+    padding: 15px 50px;
+    color: #f7f7e2;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.popup-chekout .popup-block button:hover{
+    background: #1f9c3a;
+}
+
+.novalidate{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+}

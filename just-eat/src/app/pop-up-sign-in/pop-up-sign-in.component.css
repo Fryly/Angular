@@ -1,0 +1,100 @@
+.popup-sign-in{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 20;
+    background:rgba(0, 0, 0, 0.8);
+}
+
+.popup-sign-in .popup-block{
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    width: 323px;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.popup-sign-in .popup-block .popup-form p{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 7px;
+}
+
+.popup-sign-in .popup-block .popup-form input{
+    height: 30px;
+    color: #000;
+    padding-left: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    outline: none;
+    border-radius: 6px;
+    width: 96%;
+    margin-bottom: 20px;
+}
+
+.popup-sign-in .popup-block .popup-form input:valid{
+    border: 1px solid green;
+}
+
+.popup-sign-in .popup-block .popup-form input:invalid{
+    border: 1px solid red;
+}
+
+
+.popup-sign-in .popup-block .popup-form .valid{
+    color:red;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.popup-sign-in .popup-block .popup-change__pass{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.popup-sign-in .popup-block .popup-change__pass p{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.popup-sign-in .popup-block .popup-change__pass p:first-child{
+    margin-right: 50px;
+}
+
+.popup-sign-in .popup-block button{
+    background: #01bf2b;
+    border: none;
+    padding: 15px 50px;
+    color: #f7f7e2;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.popup-sign-in .popup-block button:hover{
+    background: #1f9c3a;
+}
+
+.popup-sign-in .popup-block .popup-close{
+    width: 32px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

@@ -1,0 +1,130 @@
+.main-content{
+    padding: 0px calc(50% - 640px);
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.content .sort-kitchen, .content .restaurant-content .restaurant-block{
+    width: 15%;
+    border: 1px solid #dbdbdb;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    background: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    max-height: 530px;
+}
+
+.content .restaurant-content .restaurant-block:hover{
+    -webkit-animation: shadow-drop-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: shadow-drop-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.content .sort-kitchen h2{
+    color: #b51628;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.content .sort-kitchen ul li{
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.content .restaurant-content{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content .restaurant-content .restaurant-block{
+    text-align: center;
+    cursor: pointer;
+    width: 25%;
+    margin: 0 26.6px 26.6px 0;
+}
+
+.content .restaurant-content .restaurant-block:nth-child(3n){
+    margin-right: 0;
+}
+
+.content .restaurant-content .restaurant-block h2{
+    margin: 10px 0;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.content .restaurant-content .restaurant-block .restaurant-food{
+    margin-bottom: 10px;
+}
+
+.content .restaurant-content .restaurant-block .restaurant-time{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sort{
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.sort .sort-restaurants{
+    border: 1px solid #b4b1b1;
+    font-size: 16px;
+    padding: 5px 15px;
+    font-weight: 300;
+    cursor: pointer;
+    color: #b4b1b1;
+}
+
+.sort .sort-restaurants.select{
+    border-color: #b51628;
+    color: #b51628;
+}
+
+.select-kitchen{
+    color: #b51628
+}
+
+.sort .sort-delivery{
+    display: flex;
+    margin-left: auto;
+}
+
+.sort .sort-delivery p{
+    padding: 0 5px 7px 5px;
+    cursor: pointer;
+}
+
+.sort .sort-delivery p:first-child{
+    margin-right: 25px;
+}
+
+.sort .sort-delivery p.select-delivery{
+    border-bottom: 2px solid #b51628;
+    padding-bottom: 5px;
+    color: #b51628;
+}
+
+@-webkit-keyframes shadow-drop-center {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+              box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
+  @keyframes shadow-drop-center {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+              box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
