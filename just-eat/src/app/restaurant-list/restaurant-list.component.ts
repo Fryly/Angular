@@ -92,7 +92,7 @@ export class RestaurantListComponent implements OnInit {
   getKitchen(){
     this.restaurant.map( (item) => {  
           item.country.join(',').split(',').filter( (item) => {
-            !this.filterKithen.includes(item) ? this.filterKithen.push(item) : null
+            !this.filterKithen.includes(item)  ? this.filterKithen.push(item) : null
           }
         )
       }

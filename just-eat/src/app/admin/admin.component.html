@@ -89,7 +89,7 @@
         </div>
         <div class="add-menu" *ngSwitchCase="'Добавить ресторан'">
             <h2>Добавить ресторан</h2>
-            <div class="add-data__restaurant" [formGroup]='addRestaurantForm'>
+            <div class="add-data__restaurant" [formGroup]='addRestaurantForm' novalidate>
                 <div class="data-restaurant__input">
                     <input type="text" formControlName='addname' required>
                     <label class="label-name">
@@ -130,8 +130,7 @@
                 <div *ngIf="!addRestaurantForm.valid" class="data-restaurant__error">
                     Not all fields are filled
                 </div>
-                <!-- [disabled]="!addRestaurantForm.valid" -->
-                <button class="change-button" (click)="onAddSubmit()" >Добавить</button>
+                <button class="change-button" (click)="onAddSubmit()" [disabled]="!addRestaurantForm.valid" >Добавить</button>
             </div>
         </div>
     </div>

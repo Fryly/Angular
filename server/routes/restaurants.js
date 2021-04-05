@@ -29,11 +29,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/update',upload.single('file'), async (req, res) => {
-    console.log(req.file)
-    console.log(req.body.name)
+    let massKitchen = req.body.kitchen
     const rest = new Restaurant({
         name: req.body.name,
-        country: req.body.kitchen,
+        country: massKitchen.split(','),
         food: req.body.eat,
         openTime: req.body.open,
         closeTime: req.body.close,

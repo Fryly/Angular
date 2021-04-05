@@ -134,7 +134,6 @@ export class AdminComponent implements OnInit {
 
   onAddSubmit(){
     const addKitchen = this.addRestaurantForm.get('addkitchen').value.split(',')
-    console.log(addKitchen)
     const formData = new FormData();
     formData.append('name', this.addRestaurantForm.get('addname').value);
     formData.append('kitchen', addKitchen);
