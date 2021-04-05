@@ -21,7 +21,7 @@ export class PopUpSignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
     if (this.tokenStorage.getToken()) {

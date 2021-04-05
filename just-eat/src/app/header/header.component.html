@@ -5,14 +5,24 @@
     <nav>
         <a routerLink="/main">Главная</a>
         <a href="#">Контакты</a>
+        <a routerLink="/admin" *ngIf="isAdmin">Админ панель</a>
     </nav>
-        <div class="header-auth" *ngIf="!isLoggedIn">
-            <div class="sign-in" (click)="showIn()">Войти</div>
-            <div class="sign-up" (click)="showUp()">Зарегистрироваться</div>
-        </div>
-        <div class="header-logged" *ngIf="isLoggedIn">
-            <div class="personal-area" routerLink="/profile">Личный кабинет</div>
-            <div class="logout" (click)="logout()">Выйти</div>
+    <div class="hamburger" (click)="goMenu()">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="16" height="2" rx="1" fill="#E4002F"/>
+            <rect x="8" y="15" width="16" height="2" rx="1" fill="#E4002F"/>
+            <rect x="8" y="20" width="16" height="2" rx="1" fill="#E4002F"/>
+        </svg>
+    </div>
+        <div class="block-button">
+            <div class="header-auth" *ngIf="!isLoggedIn; else Log">
+                <div class="sign-in" (click)="showIn()">Войти</div>
+                <div class="sign-up" (click)="showUp()">Зарегистрироваться</div>
+            </div>
+            <ng-template class="header-logged" #Log>
+                <div class="personal-area" routerLink="/profile">Личный кабинет</div>
+                <div class="logout" (click)="logout()">Выйти</div>
+            </ng-template>
         </div>
     <div class="header-cart" routerLink="/cart">
         <span>{{getTotalPrice()}} р.</span>
@@ -24,5 +34,30 @@
         <span>{{getLen()}}</span>
     </div>
 </header>
+<div class="mmenu" *ngIf="showMmenu" (click)="goMenu()">
+    <div class="mmenu-block" (click)="handleClick($event)" @animationTriggerName>
+        <div class="mmenu-logo">
+            <img src="../../assets/logo.svg" alt="logo">
+        </div>
+        <nav>
+            <a routerLink="/main" (click)="goMenu()">Главная</a>
+            <a href="#">Контакты</a>
+            <a routerLink="/admin" *ngIf="isAdmin" (click)="goMenu()">Админ панель</a>
+        </nav>
+        <div class="block-button mmenu-button">
+            <div class="header-auth" *ngIf="!isLoggedIn; else Log">
+                <div class="sign-in" (click)="showIn()">Войти</div>
+                <div class="sign-up" (click)="showUp()">Зарегистрироваться</div>
+            </div>
+            <ng-template class="header-logged" #Log>
+                <div class="personal-area mobile" routerLink="/profile" (click)="goMenu()">Личный кабинет</div>
+                <div class="logout" (click)="logout()">Выйти</div>
+            </ng-template>
+        </div>
+        <div class="mmenu-close" (click)="goMenu()">
+            <img src="../../assets/close.svg" alt="">
+        </div>
+    </div>
+</div>
 <app-pop-up-sign-in [showSignIn]='showSignIn'></app-pop-up-sign-in>
 <app-pop-up-sign-up [showSignUp]='showSignUp'></app-pop-up-sign-up>

@@ -13,10 +13,6 @@ const RestaurantSchema = mongoose.Schema({
         type: Array,
         require: true
     },
-    logo: {
-        type: String,
-        require: true
-    },
     openTime: {
         type: String,
         require: true
@@ -25,6 +21,18 @@ const RestaurantSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    delivery:{
+        type: Boolean,
+        require: true
+    },
+    logo: {
+        type: String,
+        require: true
+    },
+    id:{
+        type: Number,
+        require: true
+    }
 })
 
 

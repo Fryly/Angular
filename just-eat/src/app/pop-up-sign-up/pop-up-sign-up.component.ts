@@ -21,8 +21,9 @@ export class PopUpSignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      password: ['', Validators.required],
+      сonfirmPassword: ['', Validators.required]
     })
   }
 
@@ -35,19 +36,26 @@ export class PopUpSignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.register(this.registerForm.get('email').value, this.registerForm.get('password').value).subscribe(
-      data => {
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.registerForm.reset();
-        this.goBack();
-        this.thank = !this.thank
-      },
-      err => {
-        this.errorMessage = err.error;
-        this.isSignUpFailed = true;
-      }
-    );
-  }
-
+    console.log(this.registerForm.get("email").invalid)
+    if(this.registerForm.get('password').value !== this.registerForm.get('сonfirmPassword').value){
+      this.errorMessage = 'Password not entered and (or) entered passwords do not match'
+    }else if (this.registerForm.get("email").invalid) {
+      this.errorMessage = 'Invalid email'
+    }else{
+      this.authService.register(this.registerForm.get('email').value, this.registerForm.get('password').value).subscribe(
+        data => {
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+          this.registerForm.reset();
+          this.goBack();
+          this.thank = !this.thank
+        },
+        err => {
+          this.errorMessage = err.error;
+          console.log(err.error)
+          this.isSignUpFailed = true;
+        }
+      );
+    }
+    }
 }

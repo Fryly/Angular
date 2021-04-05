@@ -12,19 +12,16 @@ require('dotenv/config');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-
 //Import Routes
-const postsRoute = require('./routes/posts');
 const restaurantsRoute = require('./routes/restaurants');
 const authRoute = require('./routes/auth')
 const orderRoute = require('./routes/orders')
 
 //Routes
 app.use('/restaurants', restaurantsRoute)
-app.use('/posts', postsRoute)
 app.use('/user', authRoute)
 app.use('/orders', orderRoute)
-
+app.use('/uploads',express.static('uploads'));
 
 //Connect To DB
 mongoose

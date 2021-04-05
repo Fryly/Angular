@@ -1,4 +1,3 @@
-import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../shared/restaurant.service';
 
@@ -25,12 +24,13 @@ export class RestaurantListComponent implements OnInit {
   activeDelivery: string;
   activeKithen: string;
   time: any
-  filterKithen: any;
+  filterKithen = [];
 
   ngOnInit(): void {
     this.getRestaurants();
     this.getTime();
   }
+
   getRestaurants() {
     this.restaurantService.getRestaurant().subscribe((data) => {
       this.restaurant = data
@@ -53,9 +53,11 @@ export class RestaurantListComponent implements OnInit {
     if(this.activeRestaurant === 'Все'){
       this.restaurant = this.dataRestaurant
       this.activeDelivery = ''
+      this.activeKithen = ''
     }else{
       this.restaurant = this.dataFilterRestaurant
       this.activeDelivery = ''
+      this.activeKithen = ''
     }
   }
 
@@ -64,32 +66,36 @@ export class RestaurantListComponent implements OnInit {
     if(this.activeDelivery === 'Доставка'){
       this.restaurant = this.dataDelivery
       this.activeRestaurant = ''
+      this.activeKithen = ''
     }else{
       this.restaurant = this.awayDataDelivery
       this.activeRestaurant = ''
+      this.activeKithen = ''
     }
   }
 
   onSelectKithen(kitchen: string){
     this.activeKithen = kitchen
+    this.restaurant = this.dataRestaurant
+    this.activeDelivery = ''
+    this.activeRestaurant = ''
+    this.restaurant = this.restaurant.filter( item => 
+      item.country.includes(kitchen)
+    )
   }
 
   getTime(){
-    let date = new Date()
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    this.time = hours + ':' + minutes
+    let time = new Date().toLocaleTimeString().slice(0,-3);
+    this.time = time
   }
 
   getKitchen(){
-    let dataKitchen = [];
-    let filterKithen =[];
-    this.restaurant.map( item => dataKitchen.push(item.country));
-    dataKitchen.join(',').split(',').map((item) => {
-      if(!filterKithen.includes(item)){
-        filterKithen.push(item)
+    this.restaurant.map( (item) => {  
+          item.country.join(',').split(',').filter( (item) => {
+            !this.filterKithen.includes(item) ? this.filterKithen.push(item) : null
+          }
+        )
       }
-    })
-    this.filterKithen = filterKithen
+    )
   }
 }

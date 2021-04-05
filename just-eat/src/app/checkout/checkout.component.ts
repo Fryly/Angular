@@ -32,7 +32,7 @@ export class CheckoutComponent implements OnInit {
     this.cart = JSON.parse(sessionStorage.getItem('cart'))
     this.ordersForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       telefon: ['', Validators.required],
       city: ['', Validators.required],
       street: ['', Validators.required],
@@ -48,8 +48,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.ordersForm.get('telefon').value === '' && this.ordersForm.get('street').value === ''){
+    if (this.ordersForm.get('telefon').value === '' || this.ordersForm.get('street').value === ''){
         this.errorMessage = 'Phone or address not entered'
+    }else if (this.ordersForm.get("email").invalid) {
+      this.errorMessage = 'Invalid email'
     }else{
         this.cartService.checkout(
           this.ordersForm.get('name').value, 

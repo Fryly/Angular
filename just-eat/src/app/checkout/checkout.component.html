@@ -21,6 +21,7 @@
                             name="email"
                             required
                             formControlName='email'
+                            [class.is-invalid] = "ordersForm.get('email').invalid && ordersForm.get('email').touched"
                         >
                         <label class="label-name">
                             <span class="name-section">Email</span>
@@ -103,8 +104,8 @@
                 <label for="money">Оплата наличными</label><br>
                 <input type="radio" name='money' value="Оплата картой курьеру" id="card" formControlName='money'>
                 <label for="card">Оплата картой курьеру</label><br>
-                <input type="radio" name='money' value="Оплата картой онлайн" id="card-online" formControlName='money'>
-                <label for="card-online">Оплата картой онлайн</label>
+                <input type="radio" name='money' value="Оплата картой онлайн" id="card-online" formControlName='money' disabled="true">
+                <label for="card-online">Оплата картой онлайн <span>(Coming soon)</span></label>
             </div>
             <div class="novalidate">{{errorMessage}}</div>
             <button class="checkout-button" (click)="onSubmit()">
@@ -112,7 +113,7 @@
             </button>
         </div>
         <div class="checkout-items__block">
-            <h2>Корзина</h2>
+            <h2 class="title-chekout">Ваш заказ</h2>
             <div class="chekout-item" *ngFor="let item of cart">
                 <div class="chekout-img">
                     <img src="{{item.img}}" alt="item">

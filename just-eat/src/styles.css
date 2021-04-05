@@ -11,6 +11,8 @@ body{
     font-family: 'Roboto', sans-serif;
     background: #eff9fb;
     width: 100%;
+    position: relative;
+    word-break: break-word;
 }
 
 a{

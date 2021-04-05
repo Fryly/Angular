@@ -6,13 +6,14 @@
     border-radius: 6px;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
     background: #fff;
-    padding: 50px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
 }
 
 .block-checkout .content-checkout .checkout-form {
-    width: 30%;
+    flex: 1;
+    margin-right: 50px;
 }
 
 .block-checkout .content-checkout .checkout-form h2{
@@ -32,6 +33,11 @@
 
 .form-money label, .form-money input{
     cursor: pointer;
+}
+
+.form-money label span{
+    font-size: 14px;
+    color: rgb(153, 153, 153);
 }
 
 .checkout-form .checkout-button{
@@ -81,6 +87,17 @@
     border: none;
     font-size: 20px;
     outline: none;
+}
+
+.is-invalid:invalid + .label-name .name-section{
+    color: red;
+    transform: translateY(-100%);
+    font-size: 16px;
+}
+
+.is-invalid:invalid + .label-name::after{
+    transform: translateX(0%);
+    border-bottom: 3px solid red;
 }
 
 .form input:focus + .label-name .name-section, 
@@ -139,8 +156,6 @@ select:-webkit-autofill:focus {
     transition: all 0.3s ease
 }
 
-
-
 .block-checkout .content-checkout .checkout-items__block{
     width: 60%;
 }
@@ -154,7 +169,7 @@ select:-webkit-autofill:focus {
 }
 
 .block-checkout .content-checkout .checkout-items__block  .chekout-img{
-    width: 12%;
+    margin-right: 20px;
 }
 
 .block-checkout .content-checkout .checkout-items__block  .chekout-img img{
@@ -162,7 +177,10 @@ select:-webkit-autofill:focus {
 }
 
 .block-checkout .content-checkout .checkout-items__block  .chekout-discription{
-    width: 60%;
+    
+    display: flex;
+    flex-direction: column;
+    flex: 0.9;
 }
 
 .block-checkout .content-checkout .checkout-items__block  .chekout-discription h2{
@@ -170,11 +188,9 @@ select:-webkit-autofill:focus {
 }
 
 .block-checkout .content-checkout .checkout-items__block .chekout-option{
-    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 }
 
 textarea{
@@ -186,6 +202,7 @@ textarea{
 .block-checkout .content-checkout .checkout-items__block .chekout-option .chekout-price{
     font-size: 20px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
 .popup-chekout{
@@ -231,4 +248,83 @@ textarea{
     text-align: center;
     font-size: 25px;
     color: red;
+}
+
+@media screen and (max-width: 1280px){
+    .block-checkout{
+        padding: 50px calc(50% - 480px);
+    }
+}
+
+@media screen and (max-width: 993px){
+    .block-checkout{
+        padding: 50px calc(50% - 417px);
+    }
+
+}
+
+
+@media screen and (max-width: 840px){
+    .block-checkout {
+        padding: 50px calc(50% - 330px);
+    }
+
+    .block-checkout .content-checkout{
+        flex-direction: column;
+    }
+    
+    .block-checkout .content-checkout .checkout-items__block{
+        order: 1;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .block-checkout .content-checkout .checkout-items__block .title-chekout,.block-checkout .content-checkout .checkout-form h2{
+        text-align: center;
+    }
+    
+    .block-checkout .content-checkout .checkout-form{
+        margin-right: 0;
+        order: 2;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .block-checkout {
+        padding: 25px calc(50% - 260px);
+    }
+    .block-checkout .content-checkout{
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .block-checkout {
+        padding: 25px calc(50% - 185px);
+    }
+
+    .block-checkout .content-checkout .checkout-items__block .chekout-item{
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+
+    .block-checkout .content-checkout .checkout-items__block .chekout-item .chekout-option{
+        margin-top: 10px;
+    }
+
+    .block-checkout .content-checkout .checkout-items__block .chekout-item .chekout-discription, 
+    .block-checkout .content-checkout .checkout-items__block .chekout-item .chekout-img{
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .block-checkout .content-checkout .checkout-items__block .chekout-item .chekout-discription h2{
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .block-checkout {
+        padding: 25px calc(50% - 150px);
+    }
 }

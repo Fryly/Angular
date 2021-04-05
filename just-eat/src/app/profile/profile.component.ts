@@ -7,10 +7,6 @@ const PROFILE: string[] = [
   'Личный кабинет', 'Изменить учетную запись', 'Адрес доставки', 'История заказов'
 ];
 
-const STATUS: string[] = [
-  'Ожидание проверки', 'Оформление заказа', 'Заказ завершен'
-];
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -21,14 +17,12 @@ export class ProfileComponent implements OnInit {
   userToken: any
   userData: any
   historyData: any
-  ordersData
   profileList: string[] = PROFILE;
   activeProfileList = this.profileList[0]
   change: boolean
   isAdmin: boolean
   userForm: FormGroup
   addressForm: FormGroup
-  status: string[] = STATUS;
 
   constructor(
     private token: TokenStorageService, 
@@ -42,9 +36,6 @@ export class ProfileComponent implements OnInit {
     this.isAdmin = this.userToken.data.admin 
     this.getUser();
     this.getHistoryOrders();
-    if(this.isAdmin){
-      this.getOrders();
-    }
   }
 
   onSelectProfileList(profileList: string): void {
@@ -79,12 +70,6 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  getOrders(){
-    this.profileService.getOrders().subscribe(data => {
-      this.ordersData = data
-    })
-  }
-
   onSubmitUser(){
     if (window.confirm('Вы хотите изменить данные?')){
       let id = this.userToken.data._id
@@ -112,15 +97,4 @@ export class ProfileComponent implements OnInit {
         })
       }
     }
-
-  onStatusClick(number, status){
-    if (window.confirm('Вы хотите изменить статус')){
-      this.profileService.patchStatus(
-        status,
-        number
-      ).subscribe((data) => {
-        this.getOrders();
-      })
-    }
-  }
 }

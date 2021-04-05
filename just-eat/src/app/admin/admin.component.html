@@ -1,0 +1,146 @@
+
+<section class="admin">
+    <div class="admin-content" [ngSwitch]="activeAdminList">
+        <div class="order-content" *ngSwitchCase="'Заказы'">
+            <h2>Заказы</h2>
+            <div class="order-table" *ngFor="let item of ordersData">
+                <div class="status-block">
+                    <div class="order-contact">
+                        <p class="order-text"><span>Имя:</span> {{item.name}}</p>
+                        <p class="order-text"><span>Адрес:</span> {{item.address}}</p>
+                        <p class="order-text"><span>Телефон:</span> {{item.telefon}}</p>
+                        <p class="order-text"><span>Оплата:</span> {{item.payment}}</p>
+                        <p class="order-text"><span>Комментарий:</span> {{item.comment}}</p>
+                    </div>
+                    <div class="status">
+                        <select class="status-select" [(ngModel)]="item.status">
+                            <option *ngFor="let itemStatus of status" [value]="itemStatus">{{itemStatus}}</option>
+                        </select>
+                        <button (click)='onStatusClick(item.orderid, item.status)'>Изменить статус</button>
+                    </div>
+                </div>
+                <div class="order-cart" *ngFor="let curItm of item.cart">
+                    <div class="order-img">
+                        <img src="{{curItm.img}}" alt="item">
+                    </div>
+                    <h2>{{curItm.name}}</h2>
+                    <div class="order-option">
+                        <span> {{curItm.count}} шт</span>
+                        <span class="order-price">{{curItm.price * curItm.count}} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="change-restaurant" *ngSwitchCase="'Изменить данные ресторана'">
+            <h2>Редактирование ресторана</h2>
+            <div class="search">
+                <input type="text" [formControl]="findControl" required >
+                <label class="label-name">
+                    <span class="name-section">Поиск ресторана</span>
+                </label>
+            </div>
+            <div class="change-data__restaurant" [formGroup]='changeRestaurantForm' *ngIf="restaurant">
+                <h2 class="title-change">Изменение данных ресторана</h2>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='name' required>
+                    <label class="label-name">
+                        <span class="name-section">Название</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='kitchen' required>
+                    <label class="label-name">
+                        <span class="name-section">Кухня(макс 3шт)</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='eat' required>
+                    <label class="label-name">
+                        <span class="name-section">Еда(макс 2шт)</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='open' required>
+                    <label class="label-name">
+                        <span class="name-section">Время открытия</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='close' required>
+                    <label class="label-name">
+                        <span class="name-section">Время закрытия</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__upload">
+                    <input type="file" #fileInput>
+                </div>
+                <div class="data-restaurant__checkbox">
+                    <p class="data-text">Доставка:</p>
+                    <input type="checkbox" formControlName='delivery'>
+                </div>
+                <div *ngIf="!changeRestaurantForm.valid" class="data-restaurant__error">
+                    Not all fields are filled
+                </div>
+                <button class="change-button" (click)="onChangeSubmit()" [disabled]="!changeRestaurantForm.valid">Изменить</button>
+            </div>
+            <div *ngIf="error" class="error">
+                <p>Ресторана не существует, повторите поиск</p>
+            </div>
+        </div>
+        <div class="add-menu" *ngSwitchCase="'Добавить ресторан'">
+            <h2>Добавить ресторан</h2>
+            <div class="add-data__restaurant" [formGroup]='addRestaurantForm'>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='addname' required>
+                    <label class="label-name">
+                        <span class="name-section">Название</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='addkitchen' required>
+                    <label class="label-name">
+                        <span class="name-section">Кухня(макс 3шт)</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='addeat' required>
+                    <label class="label-name">
+                        <span class="name-section">Еда(макс 2шт)</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='addopen' required>
+                    <label class="label-name">
+                        <span class="name-section">Время открытия</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__input">
+                    <input type="text" formControlName='addclose' required>
+                    <label class="label-name">
+                        <span class="name-section">Время закрытия</span>
+                    </label>
+                </div>
+                <div class="data-restaurant__upload">
+                    <input type="file" (change)="onFileSelect($event)">
+                </div>
+                <div class="data-restaurant__checkbox">
+                    <p class="data-text">Доставка:</p>
+                    <input type="checkbox" formControlName='adddelivery'>
+                </div>
+                <div *ngIf="!addRestaurantForm.valid" class="data-restaurant__error">
+                    Not all fields are filled
+                </div>
+                <!-- [disabled]="!addRestaurantForm.valid" -->
+                <button class="change-button" (click)="onAddSubmit()" >Добавить</button>
+            </div>
+        </div>
+    </div>
+    <aside class="navigation-admin">
+        <h2>Админ кабинет</h2>
+        <ul>
+            <li *ngFor="let admin of adminList" (click)="onSelectAdminList(admin)" [class.active]="admin === activeAdminList">
+                {{admin}}
+            </li>
+        </ul>
+    </aside>
+</section>

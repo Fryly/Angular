@@ -31,7 +31,7 @@
         <div class="restaurant-content">
             <div class="restaurant-block" *ngFor="let rest of restaurant;" routerLink="/restaurant/{{rest.id}}">
                 <img
-                        src={{rest.logo}}
+                        src='../../assets/{{rest.logo}}'
                 />
                 <h2>{{rest.name}}</h2>
                 <p class="restaurant-country">

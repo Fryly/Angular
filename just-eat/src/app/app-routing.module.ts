@@ -7,6 +7,7 @@ import { DetailRestaurantComponent } from './detail-restaurant/detail-restaurant
 
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'restaurant/:id', component: DetailRestaurantComponent },
   { path: 'profile', component: ProfileComponent  },
-  { path: 'сheckout', component: CheckoutComponent  }
+  { path: 'сheckout', component: CheckoutComponent  },
+  { path: 'admin', component: AdminComponent  }
 ];
 
 @NgModule({

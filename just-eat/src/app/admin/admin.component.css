@@ -1,0 +1,474 @@
+.admin{
+    padding: 50px calc(50% - 640px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin .admin-content,.admin .navigation-admin{
+    border-radius: 6px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    background: #fff;
+    flex: 3.5;
+    margin-right: 50px;
+    padding: 30px;
+}
+
+.admin .navigation-admin{
+    flex: 1;
+    margin-right: 0;
+}
+
+.admin .navigation-admin h2,.admin .admin-content h2{
+    text-align: left;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.admin .navigation-admin h2{
+    text-align: center;
+}
+
+.admin .navigation-admin ul li{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.admin .navigation-admin ul li:last-child{
+    margin-bottom: 0;
+}
+
+.order-content .order-table .order-cart .order-option{
+    display: flex;
+    align-items: center;
+}
+
+.order-content .order-table .order-cart .order-option .order-price{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.order-content .order-table .order-cart .order-img{
+    margin-right: 20px;
+}
+
+.order-content .order-table .order-cart .order-img img{
+    width: 100px;
+}
+
+.order-content .order-table{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.order-content .order-table .order-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.order-content .order-table .status-block{
+    display: flex;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.order-content .order-table .order-contact{
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.order-content .order-table .order-contact span{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.order-content .order-table .order-cart{
+    padding-top: 0;
+    border-bottom: none
+}
+
+.order-content .order-table .order-cart h2{
+    margin-bottom: 0;
+    margin-right: auto;
+    font-size: 25px;
+}
+
+.order-content .order-table .status-block .status button{
+    background: #01bf2b;
+    border: none;
+    padding: 15px 50px;
+    color: #f7f7e2;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.order-content .order-table .status-block .status button:hover{
+    background: #1f9c3a;
+}
+
+.profile .order-content .order-table .status-block .status button:active{
+    transform: translateY(1px)
+}
+
+.admin .navigation-admin{
+    height: 225px;
+}
+
+
+.active{
+    color: #e4002f;
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+}
+
+.status .status-select{
+    padding: 4px;
+    outline: none;
+    border-radius: 6px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+.profile .order-content .order-table .status-block .status button{
+    padding: 15px 20px;
+}
+
+.data-restaurant__input,
+.search{
+    position: relative;
+    overflow: hidden;
+}
+
+.data-restaurant__input input,
+.search input{
+    width: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+.is-invalid:invalid + .label-name .name-section{
+    color: red;
+    transform: translateY(-100%);
+    font-size: 16px;
+}
+
+.is-invalid:invalid + .label-name::after{
+    transform: translateX(0%);
+    border-bottom: 3px solid red;
+}
+
+.data-restaurant__input input:focus + .label-name .name-section, 
+.data-restaurant__input input:valid + .label-name .name-section,
+.search input:focus + .label-name .name-section,
+.search input:valid + .label-name .name-section{
+    transform: translateY(-100%);
+    font-size: 16px;
+} 
+
+.data-restaurant__input input:focus + .label-name::after, 
+.data-restaurant__input input:valid + .label-name::after,
+.search input:focus + .label-name::after,
+.search input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.data-restaurant__input label, .search label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #000;
+}
+
+.data-restaurant__input label::after, .search label::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #01bf2b;
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.data-restaurant__input .name-section, .search .name-section{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease
+}
+
+.data-restaurant__input{
+    margin-bottom: 20px;
+}
+
+.admin .admin-content .change-restaurant h2{
+    margin-bottom: 10px;
+}
+
+.admin .admin-content .change-restaurant .title-change{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.change-restaurant .change-data__restaurant,
+.add-menu .add-data__restaurant
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.change-restaurant .change-data__restaurant .data-restaurant__input,
+.add-menu .add-data__restaurant .data-restaurant__input{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.change-restaurant .change-data__restaurant  .data-restaurant__upload,
+.add-menu .add-data__restaurant .data-restaurant__upload{
+    width: 40%;
+}
+
+.change-restaurant .change-data__restaurant  .data-restaurant__checkbox,
+.add-menu .add-data__restaurant .data-restaurant__checkbox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.change-restaurant .change-data__restaurant  .data-restaurant__checkbox p,
+.add-menu .add-data__restaurant .data-restaurant__checkbox p{
+    margin-right: 5px;
+}
+
+
+
+.change-restaurant .change-data__restaurant .change-button,
+.add-menu .add-data__restaurant .change-button{
+    background: #01bf2b;
+    border: none;
+    padding: 15px 50px;
+    color: #f7f7e2;
+    border-radius: 5px;
+    margin-top: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.change-restaurant .change-data__restaurant .change-button:hover,
+.add-menu .add-data__restaurant .change-button:hover{
+    background: #1f9c3a;
+}
+
+.change-restaurant .change-data__restaurant .change-button:disabled,
+.add-menu .add-data__restaurant .change-button:disabled{
+    background-color: #9c9b9b;
+}
+
+.change-restaurant .change-data__restaurant .data-restaurant__error,
+.add-menu .add-data__restaurant .data-restaurant__error{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+}
+
+.error{
+    text-align: center;
+    margin-top: 20px;
+}
+  
+
+@media screen and (max-width: 1280px){
+    .admin{
+        padding: 50px calc(50% - 480px);
+    }
+
+    .admin .admin-content{
+        flex: 2;
+    }
+
+    .order-content .order-table .status-block{
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+    }
+
+    .order-content .order-table .status-block .order-contact{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .order-content .order-table .status-block .status{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .order-content .order-table .status-block .status button{
+        width: 210px;
+    }
+
+    .order-content .order-table .status-block .status select{
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (max-width: 993px){
+    .admin{
+        padding: 50px calc(50% - 417px);
+    }
+
+    .change-restaurant .change-data__restaurant  .data-restaurant__upload,
+    .add-menu .add-data__restaurant .data-restaurant__upload{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 840px){
+    .admin {
+        padding: 50px calc(50% - 330px);
+        flex-direction: column;
+    }
+
+    .admin .admin-content{
+        margin-right: 0;
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .admin .navigation-admin ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+
+}
+
+@media screen and (max-width: 680px){
+    .admin {
+        padding: 25px calc(50% - 260px);
+    }
+
+    .admin .navigation-admin,.admin .admin-content{
+        padding: 15px;
+    }
+
+    .admin .navigation-admin ul li{
+        width: 50%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .admin .admin-content .order-content h2{
+        text-align: center;
+    }
+
+    .change-restaurant .change-data__restaurant,
+    .add-menu .add-data__restaurant{
+        flex-direction: column;
+    }
+
+    .change-restaurant .change-data__restaurant .data-restaurant__input,
+    .add-menu .add-data__restaurant .data-restaurant__input{
+        width: 100%;
+    }
+
+    .admin-content .change-restaurant h2,
+    .add-menu .add-data__restaurant h2{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .admin {
+            padding: 25px calc(50% - 185px);
+    }
+
+    .admin .navigation-admin ul{
+        align-items: center;
+    }
+
+    .order-content .order-table .order-cart{
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .order-content .order-table .order-cart .order-img,.order-content .order-table .order-cart h2{
+        margin-right: 0;
+    }
+
+    .order-content .order-table .order-cart h2{
+        margin-bottom: 10px;
+    }
+
+    .order-content .order-table .status-block .status{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .order-content .order-table .status-block .status select{
+        margin-bottom: 20px;
+    }
+
+    .order-content .order-table .status-block .status button{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 380px){
+    .admin {
+        padding: 25px calc(50% - 150px);
+    }
+
+    .admin .navigation-admin ul li{
+        width: 100%;
+    }
+}

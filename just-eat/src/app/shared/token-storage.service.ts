@@ -27,7 +27,7 @@ export class TokenStorageService {
     localStorage.setItem(TOKEN_KEY, JSON.stringify(data));
   }
 
-  public getToken(): string {
+  public getToken() {
     return JSON.parse(localStorage.getItem(TOKEN_KEY));
   }
 

@@ -8,7 +8,8 @@
     border-radius: 6px;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
     background: #fff;
-    width: 65%;
+    flex: 3.5;
+    margin-right: 50px;
     padding: 30px;
 }
 
@@ -28,8 +29,9 @@
 }
 
 .profile .navigation-profile{
-    width: 20%;
+    flex: 1;
     height: 225px;
+    margin-right: 0;
 }
 
 .profile .navigation-profile h2{
@@ -47,7 +49,7 @@
 
 .profile .profile-content .change-content, 
 .profile .profile-content .data-address{
-    width: 700px;
+    width: 80%;
 }
 
 .profile .profile-content .change-content .change-form .change-email,
@@ -67,7 +69,6 @@
 .profile .profile-content .address-content .data-address p{
     font-size: 20px;
     font-weight: 300;
-    width: 15%;
 }
 
 .profile .profile-content .change-content .change-form input,
@@ -94,8 +95,7 @@
 }
 
 .profile .profile-content .change-content button,
-.profile .address-content .data-address button,
-.profile .order-content .order-table .status-block .status button{
+.profile .address-content .data-address button{
     background: #01bf2b;
     border: none;
     padding: 15px 50px;
@@ -108,14 +108,12 @@
 }
 
 .profile .profile-content .change-content button:hover,
-.profile .address-content .data-address button:hover,
-.profile .order-content .order-table .status-block .status button:hover{
+.profile .address-content .data-address button:hover{
     background: #1f9c3a;
 }
 
 .profile .profile-content .change-content button:active,
-.profile .address-content .data-address button:active,
-.profile .order-content .order-table .status-block .status button:active{
+.profile .address-content .data-address button:active{
     transform: translateY(1px)
 }
 
@@ -127,7 +125,7 @@
 
 .profile .address-content .address .address-text{
     font-size: 23px;
-    font-weight: 400px;
+    font-weight: 400;
     margin-right: 10px;
 }
 
@@ -136,8 +134,7 @@
     cursor: pointer;
 }
 
-.profile .profile-content .history-content .history-item,
-.profile .profile-content .order-content .order-table .order-cart{
+.profile .profile-content .history-content .history-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,87 +142,204 @@
     border-bottom: 1px solid #dddddd;
 }
 
-.profile .profile-content .order-content .order-table{
-    margin-bottom: 20px;
-    border-bottom: 1px solid #dddddd;
-}
-.profile .profile-content .order-content .order-table .status-block{
-    display: flex;
-    padding: 0 10px;
-    margin-bottom: 20px;
-    justify-content: space-between;
-    align-items: center;
-}
-.profile .profile-content .order-content .order-table .order-contact{
-    font-size: 22px;
-    font-weight: 300;
-}
-
-.profile .profile-content .order-content .order-table .order-contact span{
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.profile .profile-content .order-content .order-table .order-cart{
-    padding-top: 0;
-    border-bottom: none
-}
-
-.profile .profile-content .order-content .order-table .order-cart h2{
-    margin-bottom: 0;
-    width: 60%;
-    font-size: 25px;
-}
-
 .profile .profile-content .history-content .history-img{
-    width: 12%;
+    margin-right: 20px;
 }
 
-.profile .profile-content .history-content .history-img img,
-.profile .profile-content .order-content .order-table .order-cart .order-img img{
+.profile .profile-content .history-content .history-img img{
     width: 100px;
 }
 
 .profile .profile-content .history-content .history-discription{
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex: 0.9;
+    margin-right: auto;
 }
 
 .profile .profile-content .history-content .history-discription h2{
     margin-bottom: 10px;
 }
 
-.profile .profile-content .history-content .history-option,
-.profile .profile-content .order-content .order-table .order-cart .order-option{
-    width: 20%;
+.profile .profile-content .history-content .history-option{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 
-.profile .profile-content .history-content .history-option .history-price,
-.profile .profile-content .order-content .order-table .order-cart .order-option .order-price{
+.profile .profile-content .history-content .history-option .history-price{
     font-size: 20px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
 .active{
     color: #e4002f;
 }
 
-.status{
-    display: flex;
-    flex-direction: column;
+@media screen and (max-width: 1280px){
+    .profile{
+        padding: 50px calc(50% - 480px);
+    }
+
+    .profile .profile-content{
+        flex: 2;
+    }
+
+    .profile .profile-content .change-content, 
+    .profile .profile-content .data-address{
+        width: 100%;
+    }
 }
 
-.status .status-select{
-    padding: 4px;
-    outline: none;
-    border-radius: 6px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-    margin-bottom: 20px;
+@media screen and (max-width: 993px){
+    .profile{
+        padding: 50px calc(50% - 417px);
+    }
+
+    .profile .profile-content .change-content .change-form .change-email,
+    .change-password,
+    .change-telefon,
+    .address-city,
+    .address-street,
+    .change-house{
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .profile .profile-content .change-content .change-form input,
+    .profile .profile-content .address-content .data-address input{
+        width: 97%;
+    }
+
+    .profile .profile-content .history-content .history-item{
+        flex-direction: column;
+    }
+
+    .profile .profile-content .history-content .history-item .history-discription{
+        margin-bottom: 10px;
+        flex: 1;
+    }
+
+    .profile .profile-content .history-content .history-item .history-discription h2{
+        text-align: center;
+    }
+
 }
 
-.profile .order-content .order-table .status-block .status button{
-    padding: 15px 20px;
+@media screen and (max-width: 840px){
+    .profile {
+        padding: 50px calc(50% - 330px);
+        flex-direction: column;
+    }
+
+    .profile .profile-content{
+        margin-right: 0;
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .profile .navigation-profile ul{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .profile .navigation-profile ul li{
+        margin-right: 10px;
+    }
+
+    .profile .navigation-profile ul li:last-child{
+        margin-right: 0;
+    }
+
+    .profile .profile-content .own-content h2{
+        text-align: center;
+    }
+
+    .profile .profile-content .change-content .change-form input,
+    .profile .profile-content .address-content .data-address input{
+        width: 98%;
+    }
+
+    .profile .profile-content .change-content h2,
+    .profile .profile-content .address-content h2,
+    .profile .profile-content .history-content h2{
+        text-align: center;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 680px){
+    .profile {
+        padding: 25px calc(50% - 260px);
+    }
+
+    .profile .navigation-profile,.profile .profile-content{
+        padding: 15px;
+    }
+
+    .profile .navigation-profile ul li{
+        width: 50%;
+        margin-right: 0;
+    }
+
+    .profile .profile-content .change-content .change-form input,
+    .profile .profile-content .address-content .data-address input{
+        width: 97.5%;
+    }
+
+    .profile .profile-content .address-content .address{
+        justify-content: center;
+    }
+
+    .profile .profile-content .history-content .history-item{
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .profile {
+        padding: 25px calc(50% - 185px);
+    }
+
+    .profile .profile-content .change-content .change-form input,
+    .profile .profile-content .address-content .data-address input{
+        width: 96.5%;
+    }
+    
+    .profile .profile-content .history-content .history-item .history-discription{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .profile {
+        padding: 25px calc(50% - 150px);
+    }
+
+    .profile .navigation-profile ul li{
+        width: 100%;
+    }
+
+    .profile .profile-content .own-content .profile-text{
+        font-size: 20px;
+    }
+
+    .profile .address-content .address .address-text{
+        font-size: 20px;
+    }
+
+    .profile .address-content .address img{
+        width: 20px;
+    }
+
+    .profile .profile-content .change-content .change-form input,
+    .profile .profile-content .address-content .data-address input{
+        width: 95.5%;
+    }
 }

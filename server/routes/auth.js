@@ -72,7 +72,7 @@ router.get('/:id', async (req, res) => {
         });
         res.json(user)
     }catch(err){
-        res.json({massage: err})
+        res.json({message: err})
     }
 });
 

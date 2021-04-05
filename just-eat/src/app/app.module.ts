@@ -14,6 +14,9 @@ import { CartComponent } from './cart/cart.component';
 import { DetailRestaurantComponent } from './detail-restaurant/detail-restaurant.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     DetailRestaurantComponent,
     ProfileComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

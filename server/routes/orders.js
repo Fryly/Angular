@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
         const saveOrder = await order.save()
         res.json(saveOrder);
     } catch(err){
-        res.json({massage: err})
+        res.json({message: err})
     }
 
 });
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
         },{cart: true});
         res.json(userOrder)
     }catch(err){
-        res.json({massage: err})
+        res.json({message: err})
     }
 });
 
@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
         const orders = await Order.find({$or: [{status: 'Ожидание проверки'}, {status: 'Оформление заказа'} ]});
         res.json(orders)
     }catch(err){
-        res.json({massage: err})
+        res.json({message: err})
     }
 });
 
